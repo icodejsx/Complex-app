@@ -4,6 +4,7 @@
   "description": "this is a full stack javascript web application",
   "main": "app.js",
   "scripts": {
+   "watch": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/icodejsx/Complex-app#readme",
   "dependencies": {
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
   }
 }
