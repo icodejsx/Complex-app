@@ -1,2 +1,8 @@
-console.log('i am exctuded immedatly')
-module.exports = 'i am the export of the erouter file'
+
+module.exports = {
+    name: "mewesalot",
+    spaceies: "cat",
+    mmewo: function () {
+        console.log("i am mewesalot")
+    }
+}

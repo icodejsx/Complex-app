@@ -2,6 +2,7 @@ const express = require('express');
 const app = express()
 
 const router = require("./router");
+console.log(router)
 
 
 app.use(express.static("public"))
