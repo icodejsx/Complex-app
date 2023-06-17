@@ -1,8 +1,2 @@
-
-module.exports = {
-    name: "mewesalot",
-    spaceies: "cat",
-    mmewo: function () {
-        console.log("i am mewesalot")
-    }
-}
+const express = require('express');
+const router = express.Router();
