@@ -8,6 +8,7 @@ User.prototype.validate = function () {
     if (this.data.username == '') {
         this.errors.push('username must not be empty')
     }
+    if (this.data.username != '' && !validator.isAlphanumeric(this.data.username)) { this.errors.push('user name can only contain letters and numbers ') }
     if (!validator.isEmail(this.data.email)) {
         this.errors.push('email must not be empty')
     }
@@ -17,8 +18,8 @@ User.prototype.validate = function () {
     if (this.data.password.length > 0 && this.data.password.length < 12) {
         this.data.push('password must be at least 12 characters')
     }
-    if (this.data.password.lenght > 10) {
-        this.errors.push("password cannpt exceed 100 charatcter ")
+    if (this.data.password.length > 10) {
+        this.errors.push("password cannpt exceed 100 character ")
     }
 
     if (this.data.username.length > 0 && this.data.username.length < 3) {
