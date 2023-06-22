@@ -4,7 +4,6 @@ let User = function (data) {
     this.errors = []
 }
 
-// login code
 User.prototype.validate = function () {
     if (this.data.username == '') {
         this.errors.push('username must not be empty')
