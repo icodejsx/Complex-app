@@ -37,14 +37,14 @@ User.prototype.validate = function () {
         this.errors.push('password must not be empty')
     }
     if (this.data.password.length > 0 && this.data.password.length < 12) {
-        this.error.push('password must be at least 12 characters')
+        this.errors.push('password must be at least 12 characters')
     }
     if (this.data.password.length > 10) {
         this.errors.push("password cannpt exceed 100 character ")
     }
 
     if (this.data.username.length > 0 && this.data.username.length < 3) {
-        this.error.push('username must be at least 3 characters')
+        this.errors.push('username must be at least 3 characters')
     }
     if (this.data.username.length > 30) {
         this.errors.push("username cannot exceed 30 charatcter ")
