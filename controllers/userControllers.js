@@ -1,7 +1,10 @@
 const User = require('../models/User')
-exports.login = function (req, res) {
+exports.login = async function (req, res) {
     let user = new User(req.body)
-    user.login()
+    user.login(function (result) {
+        res.send(result)
+    })
+
 
 }
 

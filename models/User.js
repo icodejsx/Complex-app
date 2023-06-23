@@ -54,14 +54,14 @@ User.prototype.validate = function () {
 
 // login model
 
-User.prototype.login = async function () {
+User.prototype.login = async function (callback) {
     this.cleanUp()
     const attemptedUser = await usersCollection.findOne({ username: this.data.username })
     if (attemptedUser && attemptedUser.password == this.data.password) {
-        console.log("congrats")
+        callback('congrats')
 
     } else {
-        console.log("inavlid user name / password")
+        callback("inavlid user name / password")
     }
 }
 
