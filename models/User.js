@@ -52,6 +52,19 @@ User.prototype.validate = function () {
     }
 }
 
+// login model
+
+User.prototype.login = async function () {
+    this.cleanUp()
+    const attemptedUser = await usersCollection.findOne({ username: this.data.username })
+    if (attemptedUser && attemptedUser.password == this.data.password) {
+        console.log("congrats")
+
+    } else {
+        console.log("inavlid user name / password")
+    }
+}
+
 User.prototype.register = function () {
     // step #1: validate user data
     this.cleanUp()
