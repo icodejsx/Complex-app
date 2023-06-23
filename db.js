@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb')
 
 
-const client = new MongoClient(' mongodb+srv://kene:nweke081@cluster0.xc7hoie.mongodb.net/ComplexApp?retryWrites=true&w=majority')
+const client = new MongoClient('mongodb+srv://kene:nweke081@cluster0.xc7hoie.mongodb.net/ComplexApp?retryWrites=true&w=majority')
 
 async function start() {
     await client.connect()
