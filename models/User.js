@@ -53,16 +53,17 @@ User.prototype.validate = function () {
 }
 
 // login model
+User.prototype.login = function () {
+    return new Promise(async (resolve, reject) => {
+        this.cleanUp()
+        const attemptedUser = await usersCollection.findOne({ username: this.data.username })
+        if (attemptedUser && attemptedUser.password == this.data.password) {
+            resolve('congrats')
 
-User.prototype.login = async function (callback) {
-    this.cleanUp()
-    const attemptedUser = await usersCollection.findOne({ username: this.data.username })
-    if (attemptedUser && attemptedUser.password == this.data.password) {
-        callback('congrats')
-
-    } else {
-        callback("inavlid user name / password")
-    }
+        } else {
+            reject("invalid user name / password")
+        }
+    })
 }
 
 User.prototype.register = function () {
