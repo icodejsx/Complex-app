@@ -57,15 +57,19 @@ User.prototype.validate = function () {
 User.prototype.login = function () {
     return new Promise(async (resolve, reject) => {
         this.cleanUp()
-        const attemptedUser = await usersCollection.findOne({ username: this.data.username })
-        if (attemptedUser && bcrypt.compareSync(this.data.password, attemptedUser.password)) {
-            resolve('congrats')
-
-        } else {
-            reject("invalid user name / password")
-        }
+        usersCollection.findOne({ username: this.data.username }).then((attemptedUser) => {
+            if (attemptedUser && bcrypt.compareSync(this.data.password, attemptedUser.password)) {
+                resolve('congrats')
+            } else {
+                reject("invalid user name / password")
+            }
+        }).catch(function (err) {
+            reject("please try again later")
+        })
     })
 }
+
+
 
 
 
