@@ -70,9 +70,6 @@ User.prototype.login = function () {
 }
 
 
-
-
-
 User.prototype.register = function () {
     // step #1: validate user data
     this.cleanUp()
