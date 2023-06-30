@@ -73,7 +73,7 @@ User.prototype.validate = function () {
     }
     )
 }
-// login model
+// login modell
 User.prototype.login = function () {
     return new Promise(async (resolve, reject) => {
         this.cleanUp()
