@@ -11,6 +11,9 @@ router.post('/logout', userController.logout)
 router.get('/post/:id', postController.viewSingle)
 
 
+// profiles related routes
+router.get('/profile/:username', userController.ifUserExists, userController.profilePostsScreen)
+
 // post related routes
 router.get('/create-post', userController.mustBeloggedIn, postController.viewCreateScreen)
 router.post('/create-post', userController.mustBeloggedIn, postController.create)
