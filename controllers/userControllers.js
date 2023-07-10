@@ -64,7 +64,12 @@ exports.home = function (req, res) {
 }
 
 exports.ifUserExists = function (req, res, next) {
-    next()
+    User.findByUsername(req.params.username).then(function (userDocument) {
+        req.profileUser = userDocument
+        next()
+    }).catch(function (user) {
+        res.render('404')
+    })
 }
 
 exports.profilePostsScreen = function (req, res) {
