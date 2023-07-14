@@ -22,6 +22,8 @@ exports.viewSingle = async function (req, res) {
     }
 }
 
+// kkkkkkk
+
 exports.viewEditScreen = function (req, res) {
     res.render('edit-post')
 }
