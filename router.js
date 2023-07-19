@@ -20,5 +20,6 @@ router.post('/create-post', userController.mustBeloggedIn, postController.create
 router.get('/post/:id', postController.viewSingle)
 router.get('/post/:id/edit', userController.mustBeloggedIn, postController.viewEditScreen)
 router.post('/post/:id/edit', userController.mustBeloggedIn, postController.edit)
+router.post('/post/:id/delete', userController.mustBeloggedIn, postController.delete)
 
 module.exports = router;
