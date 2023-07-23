@@ -20,7 +20,7 @@ export default class Search {
         })
     }
 
-    // 3. methodsss
+    // 3. methods
     keyPressHandler() {
         this.showLoaderIcon()
     }
