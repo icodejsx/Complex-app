@@ -20,7 +20,7 @@ export default class Search {
             this.openOverlay();
         })
     }
-    // shshs
+
 
     // 3. methods
     keyPressHandler() {
