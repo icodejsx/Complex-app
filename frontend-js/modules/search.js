@@ -8,6 +8,7 @@ export default class Search {
         this.inputField = document.querySelector('#live-search-field')
         this.resultsArea = document.querySelector('.live-search-results')
         this.loaderIcon = document.querySelector('.circle-loader')
+        this.previousValues = ''
         this.events()
     }
     // 2.Events 
@@ -19,10 +20,16 @@ export default class Search {
             this.openOverlay();
         })
     }
+    // shshs
 
     // 3. methods
     keyPressHandler() {
-        this.showLoaderIcon()
+        let value = this.inputField.value
+        if (value) {
+
+        }
+        this.previousValues = value
+
     }
     showLoaderIcon() {
         this.loaderIcon.classList.add("circle-loader--visible")
