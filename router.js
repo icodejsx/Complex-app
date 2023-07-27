@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('./controllers/userControllers');
 const postController = require('./controllers/postControllers');
+const { route } = require('./app');
 
 // user related routes
 router.get('/', userController.home)
@@ -21,5 +22,6 @@ router.get('/post/:id', postController.viewSingle)
 router.get('/post/:id/edit', userController.mustBeloggedIn, postController.viewEditScreen)
 router.post('/post/:id/edit', userController.mustBeloggedIn, postController.edit)
 router.post('/post/:id/delete', userController.mustBeloggedIn, postController.delete)
+router.post('/search', postController.search)
 
 module.exports = router;
