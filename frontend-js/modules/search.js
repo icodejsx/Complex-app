@@ -1,50 +1,57 @@
 export default class Search {
-    //    1. select dom element and keep track of any usefull data
-    constructor() {
-        this.injectHTML()
-        this.headerSearchIcon = document.querySelector('.header-search-icon')
-        this.overlay = document.querySelector(".search-overlay")
-        this.closeIcon = document.querySelector('.close-live-search')
-        this.inputField = document.querySelector('#live-search-field')
-        this.resultsArea = document.querySelector('.live-search-results')
-        this.loaderIcon = document.querySelector('.circle-loader')
-        this.previousValues = ''
-        this.events()
-    }
-    // 2.Events 
-    events() {
-        this.inputField.addEventListener('keyup', () => this.keyPressHandler())
-        this.closeIcon.addEventListener("click", () => this.closeOverlay())
-        this.headerSearchIcon.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.openOverlay();
-        })
-    }
+  //    1. select dom element and keep track of any usefull data
+  constructor() {
+    this.injectHTML()
+    this.headerSearchIcon = document.querySelector('.header-search-icon')
+    this.overlay = document.querySelector(".search-overlay")
+    this.closeIcon = document.querySelector('.close-live-search')
+    this.inputField = document.querySelector('#live-search-field')
+    this.resultsArea = document.querySelector('.live-search-results')
+    this.loaderIcon = document.querySelector('.circle-loader')
+    this.previousValues = ''
+    this.events()
+  }
+  // 2.Events 
+  events() {
+    this.inputField.addEventListener('keyup', () => this.keyPressHandler())
+    this.closeIcon.addEventListener("click", () => this.closeOverlay())
+    this.headerSearchIcon.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.openOverlay();
+    })
+  }
 
 
-    // 3. methods
-    keyPressHandler() {
-        let value = this.inputField.value
-        if (value) {
-
-        }
-        this.previousValues = value
-
+  // 3. methods
+  keyPressHandler() {
+    let value = this.inputField.value
+    if (value != "" && value != this.previousValue) {
+      clearTimeout(this.typingWaitTimer)
+      this.showLoaderIcon()
+      this.typingWaitTimer = setTimeout(() => this.sendRequest(), 3000)
     }
-    showLoaderIcon() {
-        this.loaderIcon.classList.add("circle-loader--visible")
-    }
-    openOverlay() {
-        this.overlay.classList.add('search-overlay--visible');
-        setTimeout(() => this.inputField.focus(), 50)
-    }
+    this.previousValues = value
 
-    closeOverlay() {
-        this.overlay.classList.remove('search-overlay--visible');
-    }
+  }
 
-    injectHTML() {
-        document.body.insertAdjacentHTML('beforeend', `   <!-- search feature begins -->
+  sendRequest() {
+    alert('send-rq-request just ran ')
+  }
+
+  showLoaderIcon() {
+    this.loaderIcon.classList.add("circle-loader--visible")
+  }
+  openOverlay() {
+    this.overlay.classList.add('search-overlay--visible');
+    setTimeout(() => this.inputField.focus(), 50)
+  }
+
+  closeOverlay() {
+    this.overlay.classList.remove('search-overlay--visible');
+  }
+
+  injectHTML() {
+    document.body.insertAdjacentHTML('beforeend', `   <!-- search feature begins -->
   <div class="search-overlay ">
     <div class="search-overlay-top shadow-sm">
       <div class="container container--narrow">
@@ -82,5 +89,5 @@ export default class Search {
       </div>
     </div>
   </div>`)
-    }
+  }
 }
