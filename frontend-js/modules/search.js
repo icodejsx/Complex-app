@@ -2,8 +2,7 @@ import axios from "axios"
 import DOMPurify from "dompurify"
 
 export default class Search {
-  //    1. select dom element and keep track of any 
-   n useful data
+  //    1. select dom element and keep track of any useful data
   constructor() {
     this.injectHTML()
     this.headerSearchIcon = document.querySelector('.header-search-icon')
